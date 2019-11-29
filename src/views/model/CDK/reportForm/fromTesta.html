@@ -1,0 +1,98 @@
+
+<template>
+  <section class="ht__fromTesta-wrap animation-left">
+    <div class="ht__query-box">
+      <Form :model="formItem" :label-width="120" class="form__style" inline>
+        <FormItem label="游戏名称:" class="form_item">
+          <Input v-model="formItem.input1" placeholder="请输入..." />
+        </FormItem>
+        <FormItem label="游戏名称:" class="form_item">
+          <Input v-model="formItem.input2" placeholder="请输入..." />
+        </FormItem>
+        <FormItem label="游戏名称:" class="form_item" v-show="openQuery">
+          <Input v-model="formItem.input3" placeholder="请输入..." />
+        </FormItem>
+        <FormItem label="游戏名称:" class="form_item" v-show="openQuery">
+          <Input v-model="formItem.input4" placeholder="请输入..." />
+        </FormItem>
+        <FormItem label="游戏名称:" class="form_item" v-show="openQuery">
+          <Input v-model="formItem.input5" placeholder="请输入..." />
+        </FormItem>
+        <FormItem label="游戏名称:" class="form_item" v-show="openQuery">
+          <Input v-model="formItem.input6" placeholder="请输入..." />
+        </FormItem>
+        <FormItem label="游戏名称:" class="form_item" v-show="openQuery">
+          <Input v-model="formItem.input7" placeholder="请输入..." />
+        </FormItem>
+        <FormItem
+          :class="['form_item', 'form-buttom',(openQuery && formIndex % 3 > 0 ? 'buttom_glList':'')]"
+        >
+          <Button type="primary" @click="query">查询</Button>
+          <a class="moer" href="#" v-if="!openQuery" @click="queryMoer(true)">
+            <Icon type="ios-arrow-down" />展开
+          </a>
+          <a class="moer" href="#" v-else @click="queryMoer(false)">
+            <Icon type="ios-arrow-up" />收起
+          </a>
+        </FormItem>
+      </Form>
+    </div>
+    <div class="ht__content c_table">
+      <div class="content__table">
+        <div class="table__event">
+          <!-- <Button icon="md-add" type="primary">新增</Button> -->
+          <ButtonGroup>
+            <Button type="primary" size="small" @click="add">
+              <Icon type="md-add"></Icon>新增
+            </Button>
+            <Button  size="small">
+              <Dropdown  @on-click="dropDownList">
+                  更多
+                  <Icon type="ios-more"></Icon>
+                  <DropdownMenu slot="list">
+                    <DropdownItem name="delete"><Icon type="ios-trash moer_icon" />删除</DropdownItem>
+                    <DropdownItem name="aduit"><Icon type="ios-star moer_icon" />审核</DropdownItem>
+                    <DropdownItem name="unaduit"><Icon type="ios-star-outline moer_icon" />反审核</DropdownItem>
+                    <DropdownItem name="export" divided><Icon type="md-download moer_icon" />导出</DropdownItem>
+                  </DropdownMenu>
+              </Dropdown>
+            </Button>
+          </ButtonGroup>
+        </div>
+        <Table id="table" :columns="columns" :data="data" :height="tableHeight" highlight-row></Table>
+      </div>
+      <div class="table__page">
+        <Page :total="100" @on-change="onChange" @on-page-size-change="onPageSizeChange" show-sizer show-total />
+      </div>
+    </div>
+  </section>
+</template>
+
+<script lang='ts' src='./fromTesta'></script>
+
+<style lang='less' scoped>
+.ht__fromTesta-wrap {
+  overflow: hidden !important;
+}
+.c_table {
+  height: calc(100% - 99px);
+}
+.content__table {
+  height: calc(100% - 43px);
+}
+.table__event {
+  height: 50px;
+  padding: 15px 0 0 25px;
+}
+.table__page {
+  text-align: center;
+  padding: 5px 0;
+  background: #fff;
+}
+.moer_icon{
+  font-size: 15px;
+  float: left;
+  position: relative;
+  top: 2px;
+}
+</style>

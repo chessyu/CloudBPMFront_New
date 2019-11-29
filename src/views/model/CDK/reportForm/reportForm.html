@@ -1,0 +1,65 @@
+
+<template>
+  <div class="ht__reportForm-wrap animation-left">
+    <div class="ht__query-box">
+      <Form :model="formItem" :label-width="120" class="form__style" inline>
+        <FormItem label="游戏名称:" class="form_item">
+          <Input v-model="formItem.input1" placeholder="请输入..." />
+        </FormItem>
+        <FormItem label="游戏名称:" class="form_item">
+          <Input v-model="formItem.input2" placeholder="请输入..." />
+        </FormItem>
+        <FormItem label="游戏名称:" class="form_item" v-show="openQuery">
+          <Input v-model="formItem.input3" placeholder="请输入..." />
+        </FormItem>
+        <FormItem label="游戏名称:" class="form_item" v-show="openQuery">
+          <Input v-model="formItem.input4" placeholder="请输入..." />
+        </FormItem>
+        <FormItem label="游戏名称:" class="form_item" v-show="openQuery">
+          <Input v-model="formItem.input5" placeholder="请输入..." />
+        </FormItem>
+        <FormItem label="游戏名称:" class="form_item" v-show="openQuery">
+          <Input v-model="formItem.input6" placeholder="请输入..." />
+        </FormItem>
+        <FormItem label="游戏名称:" class="form_item" v-show="openQuery">
+          <Input v-model="formItem.input7" placeholder="请输入..." />
+        </FormItem>
+        
+       
+        <FormItem :class="['form_item', 'form-buttom',(openQuery && formIndex % 3 > 0 ? 'buttom_glList':'')]">
+          <Button type="primary">查询</Button>
+          <a class="moer" href="#" v-if="!openQuery" @click="queryMoer(true)">
+            <Icon type="ios-arrow-down" />展开
+          </a>
+          <a class="moer" href="#" v-else @click="queryMoer(false)">
+            <Icon type="ios-arrow-up" />收起
+          </a>
+        </FormItem>
+      </Form>
+    </div>
+    <div class="ht__content">
+      <div class="ht__content-title">
+        <router-link tag="a" :to="{name:'echartline'}">
+          <Icon type="md-trending-up" />折线图
+        </router-link>
+        <router-link tag="a" :to="{name:'echartcolumnar'}">
+          <Icon type="ios-stats" />堆叠柱状图
+        </router-link>
+        <router-link tag="a" :to="{name:'echartpie'}">
+          <Icon type="md-pie" />饼图
+        </router-link>
+        <router-link tag="a" :to="{name:'echartpoint'}">
+          <Icon type="ios-keypad" />散点图
+        </router-link>
+      </div>
+      <div class="ht__content-c">
+        <router-view />
+      </div>
+    </div>
+  </div>
+</template>
+
+<script lang='ts' src='./reportForm'></script>
+
+<style lang='less' scoped>
+</style>

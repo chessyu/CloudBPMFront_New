@@ -1,0 +1,208 @@
+html, body, div, ul, li, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, form, input, textarea, th, td, select {
+    margin: 0;
+    padding: 0;
+}
+*{box-sizing: border-box;}
+html, body {
+    height: 100%;
+}
+
+body {
+    font: 12px/1.5 'Microsoft YaHei', 'Microsoft YaHei UI', 'WenQuanYi Micro Hei', Arial, sans-serif,\5b8b\4f53;
+    font-family: "Microsoft YaHei";
+    font-size:14px;
+}
+h1, h2, h3, h4, h5, h6{font-weight:normal;}
+ul,ol {
+    list-style: none;
+}
+
+img {
+    border: none;
+    vertical-align: middle;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover,a:active{
+    text-decoration: none;
+}
+
+
+table {
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+input, textarea {
+    outline: none;
+    border: none;
+}
+
+textarea {
+    resize: none;
+    overflow: auto;
+}
+
+.fl {
+    float: left
+}
+
+.fr {
+    float: right
+}
+
+.tl {
+    text-align: left;
+}
+
+.tc {
+    text-align: center
+}
+
+.tr {
+    text-align: right;
+}
+
+.ellipse {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.inline{
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+b, em, i {
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+	/*谷歌、safari、qq浏览器、360浏览器滚动条样式*/
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/  
+::-webkit-scrollbar  
+{  
+    width: 5px;  
+    height: 5px;  
+    background-color: #F5F5F5;  
+}  
+/*定义滚动条轨道 内阴影+圆角*/  
+::-webkit-scrollbar-track  
+{  
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);  
+    border-radius: 10px;  
+    background-color: #F5F5F5;  
+}    
+/*定义滑块 内阴影+圆角*/  
+::-webkit-scrollbar-thumb  
+{  
+    border-radius: 10px;  
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);  
+    background-color: #bdbdbd;  
+}  
+/*滑块效果*/
+::-webkit-scrollbar-thumb:hover
+{
+border-radius: 5px;
+-webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+background: rgba(0,0,0,0.4);
+}
+/*IE滚动条颜色*/
+html {
+    scrollbar-face-color:#bfbfbf;/*滚动条颜色*/
+    scrollbar-highlight-color:#000;
+    scrollbar-3dlight-color:#000;
+    scrollbar-darkshadow-color:#000;
+    scrollbar-Shadow-color:#adadad;/*滑块边色*/
+    scrollbar-arrow-color:rgba(0,0,0,0.4);/*箭头颜色*/
+    scrollbar-track-color:#eeeeee;/*背景颜色*/
+}
+
+/******************************************内容区定制*********************************************************/
+:root{
+    --borderColor : #e0e0e0;
+}
+
+.tableHeader{
+    background: #fff !important;
+}
+
+
+#app{
+    height: 100%;
+}
+
+.animation-left{
+    height: 100%;
+    overflow-y: auto;
+    animation-name: goMove;
+    animation-duration: .5s;
+}
+
+@keyframes goMove{
+    0%{
+        transform: translateX(200px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.ht__query-box{
+    background: #fff;
+    padding: 20px 0;
+    // border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 1px 1px 10px 1px var(--borderColor);
+    & .form__style{
+        display: flex;
+        flex-flow: wrap;
+        justify-content: space-between;
+        position: relative;
+    }
+    & .form_item{
+        width: 30%;
+        margin: 0 10px 10px 0;
+    }
+    & .form-buttom > div{
+        float: right;
+        width: 120px;
+    }
+    & .moer{
+        margin-left: 10px;
+    }
+    .buttom_glList{
+        position: relative;
+        right: -69%;
+        bottom: 0;
+    }
+}
+.ht__content {
+    margin: 15px 0 0 0;
+    background: #fff;
+    // border-radius: 5px;
+    box-shadow: 1px 1px 10px 1px var(--borderColor);
+    & .ht__content-title{
+        padding: 15px 10px;
+        & a{
+            color: #aaa9ae;
+            margin: 0 15px;
+        }
+        & .router-link-active{
+            color: #2697fc;
+        }
+    }
+    & .ht__content-c{
+        height: 600px;
+        width: 100%;
+    }
+}
+
